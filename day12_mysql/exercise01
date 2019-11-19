@@ -1,0 +1,26 @@
+练习：
+
+1. 创建数据库 books
+    create database books;
+2.在数据库中创建表 book 结构如下
+    id  title   author  price   publication comment
+
+    create table book (id int primary key auto_increment,title varchar(32) not null,author varchar(32) not null,price decimal(5,2) not null,publication varchar(32),comment text);
+
+3. 插入若干数据
+    price   30--80
+    出版社   中国教育  机械工业    人民教育    中国文学
+
+    insert into book values (1,'三国演义','罗贯中',60,'机械工业','不可能，我二 哥天下无敌');
+
+
+4.  查找所有40多元的图书，
+        select * from book where price >=40 and price <50;
+    查找鲁迅写的机械工业出版的图书
+        select * from book where author = '鲁迅' and publication = '机械工业';
+    查找备注不为空的图书
+        select * from book where comment is not null;
+    查找价格大于60的图书，只看书名和价格
+        select title,price from book where price>60;
+    查找老舍写的或者中国文学出版的图书
+        select * from book where author ='老舍' or publication = '中国文学';
